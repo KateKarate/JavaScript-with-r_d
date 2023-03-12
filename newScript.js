@@ -44,9 +44,35 @@ console.log(sum);
 
 // 3. Mінімальне та максимальне значення елементів.
 
-console.log(Math.max(...numbers));
+function findMaxNumber(arr) {
+    let maxNumber = arr[0];
 
-console.log(Math.min(...numbers));
+    for(let i = 1; i < arr.length; i++) {
+        if (arr[i] > maxNumber) {
+            maxNumber = arr[i];
+        }
+    }
+
+    return maxNumber;
+}
+
+const maxNumber = findMaxNumber(arr);
+console.log(maxNumber);
+
+function findMinNumber(arr) {
+    let minNumber = arr[0];
+
+    for(let i = 1; i < arr.length; i++) {
+        if (arr[i] < minNumber) {
+            minNumber = arr[i];
+        }
+    }
+
+    return minNumber;
+}
+
+const minNumber = findMinNumber(arr);
+console.log(minNumber);
 
 
 
