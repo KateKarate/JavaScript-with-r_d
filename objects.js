@@ -20,20 +20,22 @@ for (let i = 0; i < user.length; i++) {
 }
 console.log(user.sayHello());
 
-// --------------------------------
+console.log("--------------------------------");
 
 const calc = {
+    num1: 0,
+    num2: 0,
     ask: function () {
-        const num1 = Number(prompt("Enter first number"));
-        const num2 = Number(prompt("Enter second number"));
-        return `Your numbers are ${num1} and ${num2}`;
+        this.num1 = Number(prompt("Enter first number"));
+        this.num2 = Number(prompt("Enter second number"));
+        return `Your numbers are ${this.num1} and ${this.num2}`;
        },
     sum: function () {
-        const sum1 = this.ask.num1 + this.ask.num2;
+        const sum1 = this.num1 + this.num2;
         return `The sum of these two numbers is ${sum1}`;
     },
     mul() {
-        const mul1 = this.ask.num1 * this.ask.num2
+        const mul1 = this.num1 * this.num2;
         return `The product of these two numbers is ${mul1}`;
     }
 }
