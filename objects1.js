@@ -15,6 +15,8 @@ function CancelableAccumulator(startingValue) {
     this.startingValue = startingValue;
 }
 
+CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
+
 CancelableAccumulator.prototype = Accumulator.prototype;
 
 CancelableAccumulator.prototype.clear = function() {
