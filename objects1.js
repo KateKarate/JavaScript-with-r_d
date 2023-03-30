@@ -38,7 +38,17 @@ console.log(myAccumulator.decrement());
 console.log(myAccumulator.decrement());
 console.log(myAccumulator.decrement());
 
-console.log(myAccumulator.clear());
-console.log(myAccumulator.clear());
+const myCancelableAccumulator = new CancelableAccumulator(99);
+
+console.log(myCancelableAccumulator.increment());
+console.log(myCancelableAccumulator.increment());
+console.log(myCancelableAccumulator.increment());
+console.log(myCancelableAccumulator.increment());
+console.log(myCancelableAccumulator.increment());
+console.log(myCancelableAccumulator.decrement());
+console.log(myCancelableAccumulator.decrement());
+console.log(myCancelableAccumulator.clear());
+console.log(myCancelableAccumulator.clear());
+
 
 
