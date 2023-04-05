@@ -1,41 +1,44 @@
-let firstNumber;
-let secondNumber;
-let input;
+console.log("----- 1 -----");
 
-firstNumber = prompt("Enter first number");
-secondNumber = prompt("Enter second number");
-
-let sum = Number(firstNumber) + Number(secondNumber);
-let difference = firstNumber - secondNumber;
-let product = firstNumber * secondNumber;
-let quotient = firstNumber / secondNumber;
-
-
-alert(`The sum of these two numbers is ${sum}`);
-
-
-if (Number(secondNumber) > Number(firstNumber)) {
-   input = prompt("Are you sure you want to continue substraction? Enter yes or no.");
-
-    if(input === 'yes') {
-        alert(`The difference of these two numbers is ${difference}`);
-    } else {
-        alert(`The difference can't be calculated. The first number is smaller than the second number.`);
+function calculateAverage(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
     }
-
-    // Я лишила свій варіант з повідомленням, бо так якось логічніше. 
-    // Щоби ніякого повідомлення не було (як ви просили в ДЗ) тре написати код так:
-    // else {} 
     
-} else {
-    alert(`The difference of these two numbers is ${difference}`);
-}
+    let avg = sum / arr.length;
+    return avg;
+  }
+  
+  let numbers = [1, 2, 3, 4, 5];
+  
+  let avg = calculateAverage(numbers);
+  console.log("The average is: " + avg); // має бути 3
+  
+  
+  console.log("----- 2 -----");
+  function User(name, age) {
+      this.name = name;
+      this.age = age;
+  }
+  
+  User.prototype.sayHello = function() {
+      return `Hi. My name is ${this.name} and I'm ${this.age} years old`;
+  }
+  
+  const user = new User('Sherlock', 27);
+  console.log(user.sayHello()); // має вивести "Hi. My name is Sherlock and I'm 27 years old"
+  
+  
+  console.log("----- 3 -----");
+  
+  const calculator = function(init = 0) {
+    return function () {
+      return ++init;
+    }
+  }
 
-alert(`The product of these two numbers is ${product}`);
-
-if (secondNumber == 0) {
-    alert(`There's been a mistake. Division by 0 is not possible`);
-} else {
-    alert(`The quotient of these two numbers is ${quotient}.`);
-}
-
+  const c = calculator();
+  console.log(c()); // має вивести 1
+  console.log(c()); // має вивести 2
+  
