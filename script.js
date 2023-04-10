@@ -1,15 +1,21 @@
-let firstNumber;
-let secondNumber;
+const countdown = document.getElementById('countdown');
 
-firstNumber = prompt("Enter first number");
-secondNumber = prompt("Enter second number");
+const newYearDate = new Date("Jan 1, 2024 00:00:00").getTime();
 
-let sum = Number(firstNumber) + Number(secondNumber);
-let difference = firstNumber - secondNumber;
-let product = firstNumber * secondNumber;
-let quotient = firstNumber / secondNumber;
+const countdownInterval = setInterval(() => {
+  const now = new Date().getTime();
 
-alert(`The sum of these two numbers is ${sum}, 
-The difference of these two numbers is ${difference},
-The product of these two numbers is ${product},
-The quotient of these two numbers is ${quotient}.`);
+  const timeRemaining = newYearDate - now;
+
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+  countdown.innerHTML = `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+
+  if (timeRemaining < 0) {
+    clearInterval(countdownInterval);
+    countdown.innerHTML = "Happy New Year!";
+  }
+}, 1000);
